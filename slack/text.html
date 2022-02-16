@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posting a text message to Slack &#8212; Bluesky by Example 0.1 documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Posting an image to Slack" href="image.html" />
+    <link rel="prev" title="Communicating from the beamline with Slack" href="../slack.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Bluesky by Example 0.1 documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../bespokescan.html">
+   Bespoke beamline specific plans
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bespokescan/problem.html">
+     A common measurement problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bespokescan/solution.html">
+     Making a bespoke measurement plan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bespokescan/codelisting.html">
+     Code Listing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../linkam.html">
+   An Ophyd device for the Linkam T96
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../linkam/problem.html">
+     Linkam Stage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../linkam/ophyd.html">
+     Ophyd Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../linkam/features.html">
+     Additional features of the Linkam class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../linkam/codelisting.html">
+     Code Listing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../slack.html">
+   Communicating from the beamline with Slack
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Posting a text message to Slack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="image.html">
+     Posting an image to Slack
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../colored_text.html">
+   Colored text in bsui
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <p><a href=https://blueskyproject.io><img src="https://blueskyproject.io/_assets/bluesky-logo-dark.svg" style="height: 1.5cm;" alt="Bluesky logo"><br>The Bluesky Project</a></p>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/slack/text.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/NSLS-II-BMM/bluesky-by-example"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/NSLS-II-BMM/bluesky-by-example/issues/new?title=Issue%20on%20page%20%2Fslack/text.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-webhook">
+   Create a Webhook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-for-posting-text">
+   Code for posting text
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Posting a text message to Slack</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-webhook">
+   Create a Webhook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-for-posting-text">
+   Code for posting text
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="posting-a-text-message-to-slack">
+<span id="slack-text"></span><h1>Posting a text message to Slack<a class="headerlink" href="#posting-a-text-message-to-slack" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-a-webhook">
+<h2>Create a Webhook<a class="headerlink" href="#create-a-webhook" title="Permalink to this headline">¶</a></h2>
+<p>To get started on using Slack at the beamline (or, really, anywhere),
+you need to create what Slack calls a “webhook”.  This is a sort of
+key for negotiating communications between your Bluesky plans and a
+specific channel in a specific workspace.  Here are detailed
+instructions from Slack for creating your very own webhook:
+<a class="reference external" href="https://api.slack.com/messaging/webhooks#create_a_webhook">https://api.slack.com/messaging/webhooks#create_a_webhook</a></p>
+<p>For example, at BMM, we have a workspace called <span class="guilabel">BMM</span> with a
+channel called <span class="guilabel">beamtime</span>.  I followed Slack’s instructions
+to create a webhook, which resulted in a long, weird URL.  This URL is
+your secret bit of information which is used to negotiate the
+communication.</p>
+<p>This secret URL must be guarded at some level.  You <strong>should not</strong>
+copy the URL into a file which gets committed to your beamline Github
+account.  Slack is amazingly good at noticing if you do that.  The
+first time I tried this, I put the URL in a text file and checked that
+text file into Github.  20 minutes later, I got an email from Slack
+saying that they had disabled that webhook.  Big Brother is watching!</p>
+<p>Once I made a new webhoook, I copied the URL into a text file, then
+stored that text file on the NAS storage that we have at the
+beamline.  That is sufficiently out of view of Big Brother’s watchful
+eye.</p>
+<p>At line 7 to 12 in the code list that follows, I read the secret URL
+from the NAS and store it in a variable (<code class="docutils literal notranslate"><span class="pre">default_slack_channel</span></code>)
+which is in the scope of the file defining the communication with
+Slack.  That should be sufficiently secure. (It’s not really all that
+secure, but it seems to be enough for my use at the beamline.)</p>
+<p>Note that it should be OK to put the secret file on a Lustre drive.
+That should be sufficiently out of view of Slack secret-sniffing
+robots.</p>
+</div>
+<div class="section" id="code-for-posting-text">
+<h2>Code for posting text<a class="headerlink" href="#code-for-posting-text" title="Permalink to this headline">¶</a></h2>
+<p>Here is the code for posting a bit of text to a Slack channel.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>   <span class="kn">from</span> <span class="nn">slack_sdk</span> <span class="kn">import</span> <span class="n">WebClient</span>
+<span class="linenos"> 2</span>   <span class="kn">from</span> <span class="nn">slack_sdk.errors</span> <span class="kn">import</span> <span class="n">SlackApiError</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>   <span class="c1">## small effort to obfuscate the web hook URL, which is secret-ish.  See:</span>
+<span class="linenos"> 5</span>   <span class="c1">##   https://api.slack.com/messaging/webhooks#create_a_webhook</span>
+<span class="linenos"> 6</span>   <span class="c1">## in the future, this could be an ini with per-user channel URLs...</span>
+<span class="linenos"> 7</span>   <span class="n">slack_secret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">startup_dir</span><span class="p">,</span> <span class="s1">&#39;BMM&#39;</span><span class="p">,</span> <span class="s1">&#39;slack_secret&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span>   <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 9</span>       <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">slack_secret</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">10</span>           <span class="n">default_slack_channel</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">11</span>   <span class="k">except</span><span class="p">:</span>
+<span class="linenos">12</span>       <span class="nb">print</span><span class="p">(</span><span class="n">error_msg</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">slack_secret file not found!&#39;</span><span class="p">))</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>   <span class="k">def</span> <span class="nf">post_to_slack</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">15</span>       <span class="n">channel</span> <span class="o">=</span> <span class="n">default_slack_channel</span>
+<span class="linenos">16</span>       <span class="n">post</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">)}</span>
+<span class="linenos">17</span>       <span class="k">try</span><span class="p">:</span>
+<span class="linenos">18</span>           <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
+<span class="linenos">19</span>           <span class="n">req</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span>
+<span class="linenos">20</span>                                 <span class="n">data</span><span class="o">=</span><span class="n">json_data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">),</span>
+<span class="linenos">21</span>                                 <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span> <span class="p">)</span>
+<span class="linenos">22</span>           <span class="n">resp</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="linenos">23</span>       <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">em</span><span class="p">:</span>
+<span class="linenos">24</span>           <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EXCEPTION: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">em</span><span class="p">))</span>
+<span class="linenos">25</span>           <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;slack_secret = </span><span class="si">{</span><span class="n">slack_secret</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be used at the <code class="docutils literal notranslate"><span class="pre">bsui</span></code> command line or in a Bluesky plan
+like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">beamline_slack</span> <span class="kn">import</span> <span class="n">post_to_slack</span>
+<span class="n">post_to_slack</span><span class="p">(</span><span class="s1">&#39;This is my message.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is what it looks like for BMM.  As you can see, a message is
+posted as each individual XAS scan is started and finished.</p>
+<div class="figure align-center" id="id1">
+<span id="fig-slack-text"></span><a class="reference external image-reference" href="../_static/slack_text.png"><img alt="../_images/slack_text.png" src="../_images/slack_text.png" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Posting text messages to Slack.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The content of the text message can be anything and of any length.  As
+you can see from the example in the figure, the messages are
+constructed from text relevant to the measurement being made.  The
+messages can even include <a class="reference external" href="https://listemoji.com/cheat-sheet">emoji codes</a>.  For example, you see the
+<code class="docutils literal notranslate"><span class="pre">:heavy_check_mark:</span></code> emoji, which is used to communicate the result
+of the test run by BMM’s machine learning data evaluation tool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post_to_slack</span><span class="p">(</span><span class="s1">&#39;Data evaluation: :heavy_check_mark:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../slack.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Communicating from the beamline with Slack</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="image.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Posting an image to Slack</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Bruce Ravel, and others<br/>
+    
+        &copy; Copyright 2021, Bruce Ravel, and others.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
